@@ -1,7 +1,8 @@
 import express, {Request, Response} from 'express';
 import { body, validationResult } from 'express-validator';
-import { DatabaseConnectionError } from '../errors/database-connection-error';
+import { BadRequestError } from '../errors/bad-request-errror';
 import { RequestValidationError } from '../errors/request-validation-error';
+import { User } from '../models/user';
 
 const router = express.Router();
 
@@ -18,9 +19,19 @@ router.post('/api/users/signup', [
 
     const {email, password} = req.body;
 
-    console.log('Creating a new user');
-    throw new DatabaseConnectionError();
-    res.send({});
+    // check is user exist with the email
+    const existingUser = await User.findOne({email});
+    if(existingUser){
+        throw new BadRequestError('Email already in use');
+    }
+
+    // create new user
+    const user = User.build({email,password});
+    await user.save();
+
+    return res.status(201).send(user);
+
+    
 });
 
 export { router as signupRouter };
