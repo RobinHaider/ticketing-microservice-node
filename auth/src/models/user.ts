@@ -27,6 +27,17 @@ const userSchma = new mongoose.Schema({
         type: String,
         required: true
     }
+},
+{
+    toJSON: {
+        transform(doc, ret, options) {
+            // normal javascript delete a property from obj
+            ret.id = ret._id;
+            delete ret._id;
+            delete ret.password;
+            delete ret.__v;
+        },
+    }
 });
 
 // before save to mongo hash password
