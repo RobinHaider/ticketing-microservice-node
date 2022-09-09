@@ -5,25 +5,25 @@ import useRequest from '../../hooks/use-request';
 export default () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const {doRequest, errors} = useRequest({
-    url: '/api/users/signup',
+  const { doRequest, errors } = useRequest({
+    url: '/api/users/signin',
     method: 'post',
     body: {
-        email, password
+      email,
+      password,
     },
-    onSuccess: () => Router.push('/')
+    onSuccess: () => Router.push('/'),
   });
 
   const onSubmit = async (event) => {
     event.preventDefault();
 
     doRequest();
-
   };
 
   return (
     <form onSubmit={onSubmit}>
-      <h1>Sign Up</h1>
+      <h1>Sign In</h1>
       <div className='form-group'>
         <label>Email Address</label>
         <input
@@ -43,7 +43,7 @@ export default () => {
       </div>
       {errors}
       <button type='submit' className='btn btn-primary mt-2'>
-        Sign Up
+        Sign In
       </button>
     </form>
   );
