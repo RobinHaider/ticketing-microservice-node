@@ -1,6 +1,6 @@
 {
   "name": "@robinhaider3/ticketing-common",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
@@ -8,9 +8,9 @@
     "build/**/*"
   ],
   "scripts": {
-    "clean": "del ./build/*",
+    "clean": "del-cli build",
     "build": "npm run clean && tsc",
-    "pub": "npm version patch && npm run build && npm publish"
+    "pub": "npm version patch && npm run build && npm publish --access public"
   },
   "keywords": [],
   "author": "",
