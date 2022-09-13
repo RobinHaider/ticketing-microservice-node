@@ -4,8 +4,9 @@ import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 
 
-import { errorHandler } from '@robinhaider3/ticketing-common';
+import { currentUser, errorHandler } from '@robinhaider3/ticketing-common';
 import { NotFoundError } from '@robinhaider3/ticketing-common';
+import { createTicketRouter } from './routes/new';
 
 const app = express();
 app.set('trust proxy', true);
@@ -19,6 +20,9 @@ app.use(
   })
 );
 
+app.use(currentUser);
+
+app.use(createTicketRouter);
 
 
 // not found route
