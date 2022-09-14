@@ -7,6 +7,7 @@ import { currentUser, errorHandler } from '@robinhaider3/ticketing-common';
 import { NotFoundError } from '@robinhaider3/ticketing-common';
 import { createTicketRouter } from './routes/new';
 import { showTicketRouter } from './routes/show';
+import { indexTicketRouter } from './routes';
 
 const app = express();
 app.set('trust proxy', true);
@@ -24,6 +25,7 @@ app.use(currentUser);
 
 app.use(createTicketRouter);
 app.use(showTicketRouter);
+app.use(indexTicketRouter);
 
 // not found route
 app.all('*', async (req, res, next) => {
