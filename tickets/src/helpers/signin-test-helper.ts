@@ -1,10 +1,11 @@
 import jwt from 'jsonwebtoken';
+import { generateMongoosId } from './mongoos_id';
 
 // authentication cookie
-export const getCookie =  () => {
+export const getCookie = () => {
   // Build a JWT payload.  { id, email }
   const payload = {
-    id: '121243423dfsfdsdf',
+    id: generateMongoosId(),
     email: 'test@test.com',
   };
 
@@ -21,5 +22,5 @@ export const getCookie =  () => {
   const base64 = Buffer.from(sessionJSON).toString('base64');
 
   // return a string thats the cookie with the encoded data
-   return [`session=${base64}`];
+  return [`session=${base64}`];
 };
