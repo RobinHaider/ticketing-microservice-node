@@ -7,14 +7,13 @@ export const errorHandler = (
   res: Response,
   next: NextFunction
 ) => {
-    if(err instanceof CustomError){
-      return res.status(err.statusCode).send({errors: err.serializeErrors()});
-    }
+  if (err instanceof CustomError) {
+    return res.status(err.statusCode).send({ errors: err.serializeErrors() });
+  }
 
-    // generic error
-    res.status(400).send({
-        errors: [
-          {message: 'Something went wrong'}
-        ]
-    });
+  // generic error
+  console.error(err);
+  res.status(400).send({
+    errors: [{ message: 'Something went wrong' }],
+  });
 };
