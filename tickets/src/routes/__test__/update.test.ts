@@ -2,6 +2,7 @@ import request from 'supertest';
 import { app } from '../../app';
 import { generateMongoosId } from '../../helpers/mongoos_id';
 import { getCookie } from '../../helpers/signin-test-helper';
+import { natsWrapper } from '../../nats-wrapper';
 
 it('returns a 404 if provided id does not exist', async () => {
   const id = generateMongoosId();
@@ -86,4 +87,23 @@ it('update if user provide valid input', async () => {
 
   expect(ticketResponse.body.title).toEqual('updatedTitle');
   expect(ticketResponse.body.price).toEqual(100);
+});
+
+it('publish an event', async () => {
+  const cookie = getCookie();
+  const response = await request(app)
+    .post('/api/tickets')
+    .set('Cookie', cookie)
+    .send({ title: 'newtitle', price: 20 });
+
+  await request(app)
+    .put(`/api/tickets/${response.body.id}`)
+    .set('Cookie', cookie)
+    .send({
+      title: 'updatedTitle',
+      price: 100,
+    })
+    .expect(200);
+
+  expect(natsWrapper.client.publish).toHaveBeenCalled();
 });
