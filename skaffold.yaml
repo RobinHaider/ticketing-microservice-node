@@ -40,4 +40,12 @@ build:
         manual:
           - dest: .
             src: 'src/**/*.ts'
+    - image: robinhaider/ticketing-expiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: 'src/**/*.ts'
   
