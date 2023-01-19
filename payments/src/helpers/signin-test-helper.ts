@@ -2,10 +2,10 @@ import jwt from 'jsonwebtoken';
 import { generateMongoosId } from './mongoos_id';
 
 // authentication cookie
-export const getCookie = () => {
+export const getCookie = (id?: string) => {
   // Build a JWT payload.  { id, email }
   const payload = {
-    id: generateMongoosId(),
+    id: id || generateMongoosId(),
     email: 'test@test.com',
   };
 

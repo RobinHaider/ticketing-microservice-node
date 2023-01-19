@@ -5,6 +5,7 @@ import cookieSession from 'cookie-session';
 
 import { currentUser, errorHandler } from '@robinhaider3/ticketing-common';
 import { NotFoundError } from '@robinhaider3/ticketing-common';
+import { createChargeRouter } from './routes/new';
 
 const app = express();
 app.set('trust proxy', true);
@@ -19,6 +20,9 @@ app.use(
 );
 
 app.use(currentUser);
+
+// routes
+app.use(createChargeRouter);
 
 // not found route
 app.all('*', async (req, res, next) => {
