@@ -22,5 +22,8 @@ export * from './events/order-events/order-created-event';
 export * from './events/order-events/order-cancelled-event';
 export * from './events/order-events/expiration-complete-event';
 
+// payment events
+export * from './events/payment-events/payment-created-event';
+
 // types
 export * from './types/order-status';
