@@ -8,6 +8,7 @@ import {
 } from '@robinhaider3/ticketing-common';
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
+import mongoose from 'mongoose';
 import { PaymentCreatedPublisher } from '../events/publishers/payment-created-publisher';
 import { Order } from '../models/order';
 import { Payment } from '../models/payment';
@@ -37,15 +38,21 @@ router.post(
     }
 
     // stripe
-    const charge = await stripe.charges.create({
-      currency: 'usd',
-      amount: order.price * 100, // because stripe takes value as cents
-      source: token,
-    });
+    // this api doesn't support for country india
+    // const charge = await stripe.charges.create({
+    //   currency: 'usd',
+    //   amount: order.price * 100, // because stripe takes value as cents
+    //   source: token,
+    // });
+
+    // create dummy test id
+    const stripeId = new mongoose.Types.ObjectId().toHexString();
+
     // save payment
     const payment = Payment.build({
       orderId,
-      stripeId: charge.id,
+      // stripeId: charge.id,
+      stripeId,
     });
     await payment.save();
 
