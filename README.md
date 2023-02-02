@@ -1,17 +1,16 @@
 
-# Ticketing Microservices Node
-### This project can be used as a standard for creating microservices with node
+# Ticketing Microservices with Node
 
-A complete production grade microservice project with node js using industry best practices. async communication, unit testing, etc. Running with docker and kubernetes. Using github workflow for deployment in Digital Ocean.
+A complete and production-ready microservice project built with Node.js that implements industry-standard best practices, including asynchronous communication and unit testing. Using github workflow for deployment in Digital Ocean. This project can be used as a reference or starting point for creating your own microservices. 
 
 
 ## Features
 
-- User can Signup, Login (Auth Service)
-- User can add tickets for sell (Tickets Service)
-- User can order tickets (Orders Service)
-- User can pay for their order (Payment Service)
-- Order will expire in one minute if user did not pay (Expiration Service)
+- Authentication system with sign-up and login functionality (Auth Service)
+- Ability for users to add tickets for sale (Tickets Service)
+- Ability for users to purchase tickets (Orders Service)
+- Payment processing for ticket purchases (Payment Service)
+- Expiration service that automatically cancels orders that have not been paid for after a set period of time (Expiration Service)
 
 
 ## Services
