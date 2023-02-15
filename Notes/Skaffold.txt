@@ -1,0 +1,11 @@
+* install skaffold from skaffold.dev
+
+ - choco install -y skaffold
+
+* Run skaffold command to make sure the installation
+
+* Create a skaffold.yaml in project root directory
+
+* Run skaffold dev - in the root directory to start
+
+* ctrl + c to stop the process

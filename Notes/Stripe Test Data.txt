@@ -1,0 +1,12 @@
+
+Token: token_visa
+
+visa card:  4242 4242 4242 4242
+
+India: 4000003560000008
+
+any three digit
+
+any future date
+
+Note: check stripe doc for more information

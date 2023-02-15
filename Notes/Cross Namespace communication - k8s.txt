@@ -1,0 +1,1 @@
+http://nameOfService.namespace.svc.cluster.local

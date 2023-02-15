@@ -1,0 +1,13 @@
+> Create Subject for the event
+
+> Create Event Class in the common service
+
+	ex: PaymentCreatedEvent
+
+> Publish common service to npm
+
+> Update Common service for the service where wanna publish/listen the event
+
+> Create the Publisher/Listener class
+
+> Publish the event where you want/ Listen for the event in application startup( in the index.ts file)

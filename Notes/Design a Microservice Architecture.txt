@@ -1,0 +1,1 @@
+* Make sure you follow a fix pattern returning the error across services

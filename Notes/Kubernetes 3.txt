@@ -1,0 +1,25 @@
+- kubectl get services
+
+only show services from default namespace
+
+- kubectl get namespace
+
+show all namespace 
+
+- kubectl get services -n ingress-nginx
+
+show services of ingress-nginx namespace
+
+
+* As example to communicate from Next client pod which is in default namespace to IngressNginxController service
+
+- http://ingress-nginx-controller.ingress-nginx.svc.cluster.local
+
+Format: http://nameOfService.namespace.svc.cluster.local
+
+Note: If your using defferent port than 80 then specify the port like
+- http://ingress-nginx-controller.ingress-nginx.svc.cluster.local:81
+
+
+
+* If you want to make the url smaller create a "External Name Service"

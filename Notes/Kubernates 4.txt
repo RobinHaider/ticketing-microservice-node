@@ -1,0 +1,3 @@
+Port forward in kubernetes
+
+- kubectl port-forward podsName 4222:4222 ( localPort: podPort)

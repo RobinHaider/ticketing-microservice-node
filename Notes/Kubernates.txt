@@ -1,0 +1,29 @@
+kubectl version
+- to check the kubernetes version
+
+Note: POD can have multiple container
+Container lives inside the POD of a Node in Kubernates
+
+* kubectl apply -f posts.yaml
+- to run a config file of kuberneties
+
+
+* kubectl get pods
+- to get running pods
+
+* kubectl exec -it podName -- command
+- run a command inside the pod container
+
+* kubectl logs podname
+- to see logs of a pod container
+
+* kubectl delete pod podname
+- to delete a pod
+
+* kubectl describe pod podName
+- to get indepth info about the pod
+
+* kubectl rollout restart deployment dep-name
+- to restart the deployment with latest image
+
+

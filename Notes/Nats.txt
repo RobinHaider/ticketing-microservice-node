@@ -1,0 +1,6 @@
+1. If you have two instance of same service for scaling, both have save database, then sending same events on both service will make dublicate data. So we have to make sure we are sending events from NATS only to one service. 
+For that they have to be the memeber of same queue group. That way NATS will send the events randomly only to one service.
+
+
+2. Monitorin url: http://localhost:8222/streaming
+

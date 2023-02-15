@@ -1,0 +1,10 @@
+NPM init -y
+- initiate package json file
+
+Install some packages to start with
+
+- typescript, ts-node-dev, express, @types/express
+
+Initiate ts config file
+
+- npx tsc --init

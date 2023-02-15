@@ -1,0 +1,12 @@
+* To add multiple object configuration in single .yaml file add --- to separete them
+
+
+* To make a request to the cluster ip service the url should be http://servicename:port
+
+
+* kubectl apply -f .
+- to apply all config file in the current directory
+
+* kubectl describe pod <pod-nam>
+- to get details and all the event happend inside the pod
+

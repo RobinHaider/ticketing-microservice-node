@@ -1,0 +1,44 @@
+* Sign in to npm
+* create public organization
+* Change name in package.json file
+  fromat: @organizationName/packageName
+* Create package
+* commit change
+* Login to npm from terminal
+  npm login
+* publish 
+  npm publish --access public
+
+----
+Publish your typescript project as javascript so that it doesn't have typescript version issue or you can use it in any project. So in the common project/npm package project
+
+* tsc --init
+* npm install typescript del-cli --save-dev
+
+* Add Script in package.json
+
+"clean": "del ./build/*",
+ "build": "npm run clean && tsc",
+  "pub": "npm version patch && npm run build && npm publish"
+
+* Uncomment line in tsconfig.json
+"declaration": true, 
+"outDir": "./build", 
+
+* Edit package.json file
+
+"main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "files": [
+    "build/**/*"
+  ],
+
+
+* install depenencies
+npm install express express-validator cookie-session jsonwebtoken @types/cookie-session @types/express @types/jsonwebtoken
+
+
+
+
+
+

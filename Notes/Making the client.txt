@@ -1,0 +1,10 @@
+* create new folder 'client'
+
+- npm init -y
+
+
+- npm install react react-dom next
+
+* add script
+
+- "dev": "next"

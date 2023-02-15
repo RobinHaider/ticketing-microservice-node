@@ -1,0 +1,5 @@
+> Search ingress nginx
+> Go to the home page
+> Deployment
+> Digital Ocean
+> Copy and run the command make sure you are connected to the Digital Ocean cluster

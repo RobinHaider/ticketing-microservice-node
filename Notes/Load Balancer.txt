@@ -1,0 +1,13 @@
+* Goto
+https://github.com/kubernetes/ingress-nginx
+
+* Goto getting started> quick start
+
+* Run this command
+
+ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.0/deploy/static/provider/cloud/deploy.yaml
+
+Note: 
+ - My IIs is using port 80 which is also the port for ingress-controller. That's why I was having issue.
+ - If you want to change the port of the load-balance. 
+ - Download the yaml file from that link. Change the load balancer port from 80 to 81( any other).

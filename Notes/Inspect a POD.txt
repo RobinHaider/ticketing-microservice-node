@@ -1,0 +1,7 @@
+- kubectl get pods
+
+- kubectl exec -it podname sh
+
+- ls
+
+- cat package.json

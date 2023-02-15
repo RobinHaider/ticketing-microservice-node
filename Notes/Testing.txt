@@ -1,0 +1,18 @@
+* Dependency
+npm install --save-dev @types/jest @types/supertest jest ts-jest supertest mongodb-memory-server
+
+
+* Change docker file so it doesn't install dev dependecies
+RUN npm install --only=prod
+
+* Change the script
+"test": "jest --watchAll --no-cache"
+
+* After Script Section add this
+"jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "./src/test/setup.ts"
+    ]
+  },
